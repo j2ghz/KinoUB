@@ -8,14 +8,15 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'MainDataSet.Table' table. You can move, or remove it, as needed.
-        Me.TableTableAdapter.Fill(Me.MainDataSet.Table)
+        Me.TableTableAdapter.Fill(Me.MainDataSet.Movies)
 
     End Sub
 
     Private Sub LoadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadToolStripMenuItem.Click
-        'For i = 2000 To 4000
-        MsgBox(remove(downloadmovie(3056))) 'i)
+        'For i = 3000 To 3100
+        Add(remove(downloadmovie(3055)), 3055) 'i)), i)
         'Next
+        MainDataSet.AcceptChanges()
     End Sub
 
     Private Function downloadmovie(i As Integer) As String
@@ -28,7 +29,7 @@ Public Class Form1
 
     Private Function Downloadfile(p1 As String) As String
         Dim cesta As String = IO.Path.GetTempFileName()
-        My.Computer.Network.DownloadFile(p1, cesta, "", "", True, 1000, True, FileIO.UICancelOption.ThrowException)
+        My.Computer.Network.DownloadFile(p1, cesta, "", "", False, 1000, True, FileIO.UICancelOption.ThrowException)
         Return cesta
     End Function
 
@@ -36,8 +37,6 @@ Public Class Form1
         ' Remove HTML tags.
         Return Regex.Replace(html, "<.*?>", "")
     End Function
-    'remove empty lines
-    'add to database
 
     Private Function remove(p1 As String) As Object
         Dim sb As New StringBuilder
@@ -48,6 +47,18 @@ Public Class Form1
         Next
         Return sb.ToString
     End Function
+
+    Private Sub Add(p1 As String, i As Integer)
+        Dim s() As String = p1.Split(vbCr, vbCrLf, vbLf, Environment.NewLine)
+        Dim newrow As mainDataSet.MoviesRow
+        newrow = MainDataSet.Movies.NewMoviesRow()
+        newrow.BeginEdit()
+        newrow.Id = i
+        newrow.Name = "test" & i
+        newrow.Description = p1
+        newrow.EndEdit()
+        MainDataSet.Movies.Rows.Add(newrow)
+    End Sub
 
 
 

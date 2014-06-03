@@ -29,7 +29,7 @@ Partial Class Form1
         Me.MainDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MainDataSet = New KinoUB.mainDataSet()
         Me.TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TableTableAdapter = New KinoUB.mainDataSetTableAdapters.TableTableAdapter()
+        Me.TableTableAdapter = New KinoUB.mainDataSetTableAdapters.MoviesTableAdapter
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NazevDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PopisDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -79,7 +79,7 @@ Partial Class Form1
         '
         'TableBindingSource
         '
-        Me.TableBindingSource.DataMember = "Table"
+        Me.TableBindingSource.DataMember = "Movies"
         Me.TableBindingSource.DataSource = Me.MainDataSetBindingSource
         '
         'TableTableAdapter
@@ -130,7 +130,7 @@ Partial Class Form1
     Friend WithEvents MainDataSetBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents MainDataSet As KinoUB.mainDataSet
     Friend WithEvents TableBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents TableTableAdapter As KinoUB.mainDataSetTableAdapters.TableTableAdapter
+    Friend WithEvents TableTableAdapter As KinoUB.mainDataSetTableAdapters.MoviesTableAdapter
     Friend WithEvents IdDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NazevDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PopisDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
