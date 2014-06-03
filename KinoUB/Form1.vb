@@ -37,5 +37,4 @@ Public Class Form1
     End Function
     'remove empty lines
     'add to database
-
 End Class
