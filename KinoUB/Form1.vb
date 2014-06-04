@@ -58,8 +58,8 @@ Public Class Form1
             newrow.BeginEdit()
             newrow.Id = i
             newrow.Name = s(0)
-            If Not p1.Contains("REZERVACE") Then Throw New Exception("Neni film (Chybí rezervace)")
-            newrow.Description = p1.Remove(0, p1.LastIndexOf("REZERVACE") + 9)
+            'If Not p1.Contains("REZERVACE") Then Throw New Exception("Neni film (Chybí rezervace)")
+            newrow.Description = p1 '.Remove(0, p1.LastIndexOf("REZERVACE") + 9)
             newrow.EndEdit()
             SyncLock MainDataSet
                 MainDataSet.Movies.Rows.Add(newrow)
