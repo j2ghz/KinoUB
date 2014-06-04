@@ -57,7 +57,9 @@ Public Class Form1
         newrow.Name = "test" & i
         newrow.Description = p1
         newrow.EndEdit()
-        MainDataSet.Movies.Rows.Add(newrow)
+        SyncLock MainDataSet
+            MainDataSet.Movies.Rows.Add(newrow)
+        End SyncLock
     End Sub
 
 
