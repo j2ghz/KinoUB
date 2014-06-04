@@ -12,14 +12,15 @@ Public Class Form1
 
     Private Sub LoadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadToolStripMenuItem.Click
         Dim por As Integer = downloadmovie(0).Length
-        For i = 2500 To 4000
-            Dim film As String = downloadmovie(i)
-            If Not film.Length = por Then
-                Add(remove(film), i)
-            End If
-            Me.Text = FormatPercent((i - 2500) / 1500)
-            Application.DoEvents()
-        Next
+        Parallel.For(2500, 4000, Sub(i As Integer)
+                                     Dim film As String = downloadmovie(i)
+                                     If Not film.Length = por Then
+                                         Add(remove(film), i)
+                                     End If
+                                     SyncLock Me.Text
+                                         Me.Text = FormatPercent((i - 2500) / 1500)
+                                     End SyncLock
+                                 End Sub)
         MainDataSet.AcceptChanges()
     End Sub
 
@@ -63,7 +64,9 @@ Public Class Form1
             If Not p1.Contains("REZERVACE") Then Throw New Exception("Neni film (Chybí rezervace)")
             newrow.Description = p1.Remove(0, p1.LastIndexOf("REZERVACE") + 9)
             newrow.EndEdit()
-            MainDataSet.Movies.Rows.Add(newrow)
+            SyncLock MainDataSet
+                MainDataSet.Movies.Rows.Add(newrow)
+            End SyncLock
         Catch ex As Exception
             Debug.WriteLine(i & " - " & ex.ToString)
         End Try
