@@ -17,9 +17,6 @@ Public Class Form1
                                      If Not film.Length = por Then
                                          Add(remove(film), i)
                                      End If
-                                     SyncLock Me.Text
-                                         Me.Text = FormatPercent((i - 2500) / 1500)
-                                     End SyncLock
                                  End Sub)
         MainDataSet.AcceptChanges()
     End Sub
