@@ -23,34 +23,39 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.LoadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MainDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MainDataSet = New KinoUB.mainDataSet()
-        Me.TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TableTableAdapter = New KinoUB.mainDataSetTableAdapters.MoviesTableAdapter
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.LoadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TableTableAdapter = New KinoUB.mainDataSetTableAdapters.MoviesTableAdapter()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.MoviesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NazevDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PopisDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
+        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MainDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MainDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MoviesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'TableBindingSource
         '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.NazevDataGridViewTextBoxColumn, Me.PopisDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.TableBindingSource
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 24)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(667, 431)
-        Me.DataGridView1.TabIndex = 0
+        Me.TableBindingSource.DataMember = "Movies"
+        Me.TableBindingSource.DataSource = Me.MainDataSetBindingSource
+        '
+        'MainDataSetBindingSource
+        '
+        Me.MainDataSetBindingSource.DataSource = Me.MainDataSet
+        Me.MainDataSetBindingSource.Position = 0
+        '
+        'MainDataSet
+        '
+        Me.MainDataSet.DataSetName = "mainDataSet"
+        Me.MainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'MenuStrip1
         '
@@ -67,42 +72,53 @@ Partial Class Form1
         Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
         Me.LoadToolStripMenuItem.Text = "Load"
         '
-        'MainDataSetBindingSource
-        '
-        Me.MainDataSetBindingSource.DataSource = Me.MainDataSet
-        Me.MainDataSetBindingSource.Position = 0
-        '
-        'MainDataSet
-        '
-        Me.MainDataSet.DataSetName = "mainDataSet"
-        Me.MainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TableBindingSource
-        '
-        Me.TableBindingSource.DataMember = "Movies"
-        Me.TableBindingSource.DataSource = Me.MainDataSetBindingSource
-        '
         'TableTableAdapter
         '
         Me.TableTableAdapter.ClearBeforeFill = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToOrderColumns = True
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.DescriptionDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.MoviesBindingSource
+        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 24)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(667, 431)
+        Me.DataGridView1.TabIndex = 2
+        '
+        'MoviesBindingSource
+        '
+        Me.MoviesBindingSource.DataMember = "Movies"
+        Me.MoviesBindingSource.DataSource = Me.MainDataSetBindingSource
         '
         'IdDataGridViewTextBoxColumn
         '
         Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
         Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
         Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
+        Me.IdDataGridViewTextBoxColumn.Width = 41
         '
-        'NazevDataGridViewTextBoxColumn
+        'NameDataGridViewTextBoxColumn
         '
-        Me.NazevDataGridViewTextBoxColumn.DataPropertyName = "nazev"
-        Me.NazevDataGridViewTextBoxColumn.HeaderText = "nazev"
-        Me.NazevDataGridViewTextBoxColumn.Name = "NazevDataGridViewTextBoxColumn"
+        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
+        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
+        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        Me.NameDataGridViewTextBoxColumn.Width = 60
         '
-        'PopisDataGridViewTextBoxColumn
+        'DescriptionDataGridViewTextBoxColumn
         '
-        Me.PopisDataGridViewTextBoxColumn.DataPropertyName = "popis"
-        Me.PopisDataGridViewTextBoxColumn.HeaderText = "popis"
-        Me.PopisDataGridViewTextBoxColumn.Name = "PopisDataGridViewTextBoxColumn"
+        Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "Description"
+        Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "Description"
+        Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
+        Me.DescriptionDataGridViewTextBoxColumn.Width = 85
         '
         'Form1
         '
@@ -114,25 +130,29 @@ Partial Class Form1
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
         Me.Text = "Form1"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MainDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MainDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MoviesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents LoadToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MainDataSetBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents MainDataSet As KinoUB.mainDataSet
     Friend WithEvents TableBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TableTableAdapter As KinoUB.mainDataSetTableAdapters.MoviesTableAdapter
-    Friend WithEvents IdDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NazevDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PopisDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents IdDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DescriptionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MoviesBindingSource As System.Windows.Forms.BindingSource
 
 End Class
