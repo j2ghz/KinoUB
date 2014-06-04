@@ -27,7 +27,7 @@ Public Class Form1
 
     Private Function Downloadfile(p1 As String) As String
         Dim cesta As String = IO.Path.GetTempFileName()
-        My.Computer.Network.DownloadFile(p1, cesta, "", "", False, 1000, True, FileIO.UICancelOption.ThrowException)
+        My.Computer.Network.DownloadFile(p1, cesta, "", "", False, 1000, True, FileIO.UICancelOption.DoNothing)
         Return cesta
     End Function
 
@@ -47,6 +47,8 @@ Public Class Form1
     End Function
 
     Private Sub Add(p1 As String, i As Integer)
+        MsgBox(p1)
+        Debug.WriteLine(i & " - " & p1)
         Dim s() As String = p1.Split(vbCr, vbCrLf, vbLf, Environment.NewLine)
         Dim newrow As mainDataSet.MoviesRow
         newrow = MainDataSet.Movies.NewMoviesRow()
