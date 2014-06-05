@@ -5,6 +5,9 @@ Imports System.Text
 
 Public Class Form1
 
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    End Sub
+
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.TableTableAdapter.Fill(Me.MainDataSet.Movies)
@@ -50,23 +53,28 @@ Public Class Form1
     End Function
 
     Private Sub Add(p1 As String, i As Integer)
-        'MsgBox(p1)
         Try
-            Dim s() As String = p1.Split(vbCr, vbCrLf, vbLf, Environment.NewLine)
-            Dim newrow As mainDataSet.MoviesRow
-            newrow = MainDataSet.Movies.NewMoviesRow()
-            newrow.BeginEdit()
-            newrow.Id = i
-            newrow.Name = s(0)
-            'If Not p1.Contains("REZERVACE") Then Throw New Exception("Neni film (Chybí rezervace)")
-            newrow.Description = p1 '.Remove(0, p1.LastIndexOf("REZERVACE") + 9)
-            newrow.EndEdit()
-            SyncLock MainDataSet
-                MainDataSet.Movies.Rows.Add(newrow)
-            End SyncLock
+            Me.TableTableAdapter.Insert(i, p1.Split(vbCrLf)(0), p1)
         Catch ex As Exception
-            Debug.WriteLine(i & " - " & ex.ToString)
+            'nevim
         End Try
+        'MsgBox(p1)
+        'Try
+        '    Dim s() As String = p1.Split(vbCr, vbCrLf, vbLf, Environment.NewLine)
+        '    Dim newrow As mainDataSet.MoviesRow
+        '    newrow = MainDataSet.Movies.NewMoviesRow()
+        '    newrow.BeginEdit()
+        '    newrow.Id = i
+        '    newrow.Name = s(0)
+        '    'If Not p1.Contains("REZERVACE") Then Throw New Exception("Neni film (Chybí rezervace)")
+        '    newrow.Description = p1 '.Remove(0, p1.LastIndexOf("REZERVACE") + 9)
+        '    newrow.EndEdit()
+        '    SyncLock MainDataSet
+        '        MainDataSet.Movies.Rows.Add(newrow)
+        '    End SyncLock
+        'Catch ex As Exception
+        '    Debug.WriteLine(i & " - " & ex.ToString)
+        'End Try
     End Sub
 
 
