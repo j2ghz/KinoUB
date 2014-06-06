@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("KinoUB")> 
-<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyDescription("View kino.ub.cz")> 
 <Assembly: AssemblyCompany("")> 
 <Assembly: AssemblyProduct("KinoUB")> 
 <Assembly: AssemblyCopyright("Copyright ©  2014")> 
