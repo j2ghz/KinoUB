@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://94.125.220.136:8080/job/KinoUB/lastSuccessfulBuild/artifact/KinoUB/publish/</InstallUrl>
+    <InstallUrl>http://94.125.220.136:8080/job/KinoUB/lastSuccessfulBuild/artifact/KinoUB/bin/Debug/</InstallUrl>
     <SupportUrl>https://github.com/j2ghz/KinoUB/</SupportUrl>
     <ErrorReportUrl>https://github.com/j2ghz/KinoUB/issues</ErrorReportUrl>
     <PublisherName>Jozef Hollý</PublisherName>
