@@ -27,7 +27,7 @@
     <SupportUrl>https://github.com/j2ghz/KinoUB/</SupportUrl>
     <ErrorReportUrl>https://github.com/j2ghz/KinoUB/issues</ErrorReportUrl>
     <PublisherName>Jozef Hollý</PublisherName>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
