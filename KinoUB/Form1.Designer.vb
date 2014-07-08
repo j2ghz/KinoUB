@@ -165,7 +165,7 @@ Partial Class Form1
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "KinoUB"
         CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MainDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MainDataSet, System.ComponentModel.ISupportInitialize).EndInit()
