@@ -5,5 +5,7 @@ Planned features are:
 
 - [x] Movie list download
 - [ ] Movie list rate, seen, want/don't want to see
-- [ ] IMDB, jinni, etc. sync
-- [ ] Transform to webpage
+- [ ] Trakt.tv sync
+- [ ] Nicer interface
+- [ ] Reminders
+- [ ] NotifyIcon, minimize
