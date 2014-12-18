@@ -24,15 +24,15 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
-        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ParseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.ContextMenuStrip1.SuspendLayout
         CType(Me.SplitContainer1,System.ComponentModel.ISupportInitialize).BeginInit
         Me.SplitContainer1.Panel1.SuspendLayout
         Me.SplitContainer1.Panel2.SuspendLayout
         Me.SplitContainer1.SuspendLayout
-        Me.ContextMenuStrip1.SuspendLayout
         Me.SuspendLayout
         '
         'TextBox1
@@ -44,6 +44,19 @@ Partial Class Form1
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(232, 435)
         Me.TextBox1.TabIndex = 0
+        Me.TextBox1.WordWrap = false
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ParseToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(103, 26)
+        '
+        'ParseToolStripMenuItem
+        '
+        Me.ParseToolStripMenuItem.Name = "ParseToolStripMenuItem"
+        Me.ParseToolStripMenuItem.Size = New System.Drawing.Size(102, 22)
+        Me.ParseToolStripMenuItem.Text = "parse"
         '
         'WebBrowser1
         '
@@ -73,18 +86,6 @@ Partial Class Form1
         Me.SplitContainer1.SplitterDistance = 232
         Me.SplitContainer1.TabIndex = 2
         '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ParseToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(103, 26)
-        '
-        'ParseToolStripMenuItem
-        '
-        Me.ParseToolStripMenuItem.Name = "ParseToolStripMenuItem"
-        Me.ParseToolStripMenuItem.Size = New System.Drawing.Size(102, 22)
-        Me.ParseToolStripMenuItem.Text = "parse"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -94,12 +95,13 @@ Partial Class Form1
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Form1"
         Me.Text = "Form1"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.ContextMenuStrip1.ResumeLayout(false)
         Me.SplitContainer1.Panel1.ResumeLayout(false)
         Me.SplitContainer1.Panel1.PerformLayout
         Me.SplitContainer1.Panel2.ResumeLayout(false)
         CType(Me.SplitContainer1,System.ComponentModel.ISupportInitialize).EndInit
         Me.SplitContainer1.ResumeLayout(false)
-        Me.ContextMenuStrip1.ResumeLayout(false)
         Me.ResumeLayout(false)
 
 End Sub
