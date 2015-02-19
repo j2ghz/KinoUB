@@ -5,7 +5,8 @@
         Dim lines As HtmlElementCollection = WebBrowser1.Document.GetElementsByTagName("tr")
         For Each line As HtmlElement In lines
             If line.GetElementsByTagName("td").Count >= 3 Then
-                TextBox1.Text &= line.GetElementsByTagName("td")(2).InnerText & vbCrLf & downloadfile("http://api.trakt.tv/search/movies.json/ab1ae81b7de9b30d7f169079a4c7dd08?limit=1&query=" & line.GetElementsByTagName("td")(2).InnerText) & vbCrLf & vbCrLf & vbCrLf
+                TextBox1.Text &= line.GetElementsByTagName("td")(2).InnerText & vbCrLf & downloadfile("http://csfdapi.cz/movie?search=" & line.GetElementsByTagName("td")(2).InnerText) & vbCrLf & vbCrLf & vbCrLf
+                Application.DoEvents()
             End If
         Next
 
